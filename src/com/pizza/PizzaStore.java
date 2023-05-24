@@ -1,33 +1,31 @@
 package com.pizza;
 
-import com.pizza.recipe.PepperoniPizzaRecipe;
-import com.pizza.recipe.PlainPizzaRecipe;
+import com.pizza.chef.PizzaChef;
+import com.pizza.chef.Pizzaiola;
+import com.pizza.food.Pizza;
 import com.pizza.recipe.Recipe;
 import com.pizza.recipe.RecipeFactory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PizzaStore {
 
-//    public Pizza OrderAnyPizza(){
-//        RecipeFactory pizza = new RecipeFactory();
-//        Pizza plain = pizza.createRecipe("")
-//        return plain;
-//        Pizzaiola chef = new Pizzaiola();
-//
-//    }
+    public List<Pizza> Order(List<String> PizzaNames) throws Exception {
+        List<Pizza> order = new ArrayList<>();
+        RecipeFactory factory = new RecipeFactory();
 
-//    public PlainPizza OrderPlainPizza(){
-//        PlainPizzaRecipe recipe = new PlainPizzaRecipe();
-//        PlainPizzaChef chef = new PlainPizzaChef();
-//
-//        return chef.prepare(recipe);
-//    }
-//
-//    public PepperoniPizza OrderPepperoniPizza(){
-//        PepperoniPizzaRecipe recipe = new PepperoniPizzaRecipe();
-//        PepperoniPizzaChef chef = new PepperoniPizzaChef();
-//
-//        return chef.prepare(recipe);
-//    }
+        for(String PizzaName: PizzaNames){
+            Recipe recipe = factory.createRecipe(PizzaName);
+            PizzaChef chef = new Pizzaiola();
+            order.add(Process(chef, recipe));
+        }
+        return order;
+
+    }
+    private Pizza Process(PizzaChef chef, Recipe recipe){
+        return chef.prepare(recipe);
+    }
 
 }
 

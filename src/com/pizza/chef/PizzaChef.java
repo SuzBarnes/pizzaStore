@@ -1,5 +1,6 @@
-package com.pizza;
+package com.pizza.chef;
 
+import com.pizza.food.Pizza;
 import com.pizza.recipe.Recipe;
 
 public interface PizzaChef {

@@ -1,4 +1,4 @@
-package com.pizza;
+package com.pizza.food;
 
 import java.util.List;
 
