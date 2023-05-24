@@ -1,6 +1,8 @@
 package com.test;
 
 import com.pizza.Customer;
+import com.pizza.PizzaStore;
+import com.pizza.food.Pizza;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -28,11 +30,16 @@ public class MainTest {
         assertEquals("Pepperoni", pizzas.get(0));
     }
 
-//    @Test
-//    public void getPizzaIngredients(){
-//        Customer customer = new Customer();
-//        List<String> pizzas = new ArrayList<>();
-//        pizzas.add("Pepperoni");
-//        assertEquals("[Tomato, Cheese, Pepperoni]", pizzas.getToppings());
-//    }
+    @Test
+    public void getPizzaIngredients() throws Exception{
+       List<Pizza> order;
+        Customer customer = new Customer();
+        PizzaStore store = new PizzaStore();
+        List<String> pizzas = new ArrayList<>();
+        pizzas.add("Pepperoni");
+        order = store.Order(pizzas);
+        customer.Order(pizzas);
+
+        assertEquals(3, order.get(0).getToppings().size());
+    }
 }

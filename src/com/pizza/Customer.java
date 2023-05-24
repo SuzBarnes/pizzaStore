@@ -8,12 +8,13 @@ public class Customer {
 
     private List<Pizza> order;
     private List<String> pizzaNames;
-    public void Order(List<String> pizzas) throws Exception
+    public List<Pizza> Order(List<String> pizzas) throws Exception
     {
         this.pizzaNames = pizzas;
         PizzaStore store = new PizzaStore();
         order = store.Order(pizzas);
         InspectPizzaToppings();
+        return order;
     }
 
     private void InspectPizzaToppings()
