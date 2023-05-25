@@ -11,6 +11,9 @@ public class RecipeFactory {
         if(pizzaName == "Hawaiian"){
             return new HawaiianPizzaRecipe();
         }
+        if(pizzaName == "Four Cheese"){
+            return new FourCheese();
+        }
         return null;
     }
 }

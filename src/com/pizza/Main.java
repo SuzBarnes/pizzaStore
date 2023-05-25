@@ -11,6 +11,7 @@ public class Main {
         pizzas.add("Pepperoni");
         pizzas.add("Plain Pizza");
         pizzas.add("Hawaiian");
+        pizzas.add("Four Cheese");
         customer.Order(pizzas);
 
     }
