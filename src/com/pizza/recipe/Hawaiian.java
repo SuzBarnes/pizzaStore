@@ -1,20 +1,20 @@
 package com.pizza.recipe;
 
-import com.pizza.recipe.Recipe;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class PepperoniPizzaRecipe implements Recipe {
+public class Hawaiian implements Recipe {
     public List<String> Toppings = new ArrayList<>();
-    public PepperoniPizzaRecipe()
+    public Hawaiian()
     {
         Toppings.add("Tomato");
         Toppings.add("Cheese");
-        Toppings.add("Pepperoni");
+        Toppings.add("Ham");
+        Toppings.add("Pineapple");
     }
     @Override
     public List<String> getToppings() {
         return Toppings;
     }
 }
+

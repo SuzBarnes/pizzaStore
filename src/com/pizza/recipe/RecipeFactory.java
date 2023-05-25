@@ -1,19 +1,16 @@
 package com.pizza.recipe;
 
+import java.util.HashMap;
+
 public class RecipeFactory {
-    public Recipe createRecipe(String pizzaName){
-        if(pizzaName == "Plain Pizza"){
-            return new PlainPizzaRecipe();
-        }
-        if(pizzaName == "Pepperoni"){
-            return new PepperoniPizzaRecipe();
-        }
-        if(pizzaName == "Hawaiian"){
-            return new HawaiianPizzaRecipe();
-        }
-        if(pizzaName == "Four Cheese"){
-            return new FourCheese();
-        }
-        return null;
+
+    HashMap<String, Recipe> recipeHashMap = new HashMap<String, Recipe>();
+
+    public Recipe createRecipe(String pizzaName) {
+        recipeHashMap.put("Plain Pizza", new Plain());
+        recipeHashMap.put("Pepperoni", new Pepperoni());
+        recipeHashMap.put("Hawaiian", new Hawaiian());
+        recipeHashMap.put("Four Cheese", new FourCheese());
+        return recipeHashMap.get(pizzaName);
     }
 }
